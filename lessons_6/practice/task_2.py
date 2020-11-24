@@ -7,24 +7,39 @@ class MyDict:
     def get(self, key):
         return self.my_dict[key]
 
+    def __add__(self, other): 
+        new = dict() 
+        for i in self.my_dict:
+            new[i] = self.my_dict[i] 
+        for i in other.my_dict:
+            new[i] = other.my_dict[i]  
+        return MyDict(new)
+
     def insert(self, key, value):
         self.my_dict[key] = value
 
-    def keys(self):
-        return self.my_dict.keys()
+    def keys(self):  
+        return [k for k in self.my_dict]
 
-    def values(self):
-        return self.my_dict.values()
-
-    def add_new_dict(self, dict_new):
-        return MyDict(self.my_dict.update(dict_new))
+    def values(self): 
+        return [self.my_dict[k] for k in self.my_dict]
 
 
+if __name__ == "__main__":
 
-mydict = MyDict() 
-mydict.insert('x', 1)
-mydict.insert('y', 2)
-mydict.insert('z', 3)
-print(mydict.my_dict)
-print(mydict.get('x'))
-print(mydict.get('xx'))
+    first_dict = MyDict() 
+    first_dict.insert('x', 1)
+    first_dict.insert('y', 2)
+    first_dict.insert('z', 3) 
+    print(first_dict.my_dict, 'first dict') 
+    second_dict = MyDict() 
+    second_dict.insert('q', 4)
+    # second_dict.insert('a', 3)
+    # second_dict.insert('c', 35)  
+    print(second_dict.my_dict, 'error second dict')  
+    new = second_dict + first_dict
+    print(new.my_dict, 'new')
+    print(first_dict.my_dict, 'old')
+
+    print(first_dict.values())
+    print(first_dict.keys())
