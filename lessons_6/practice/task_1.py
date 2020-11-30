@@ -67,4 +67,8 @@ print(mylist.my_list)
 array = MyList([122,4,4,5,6,])
 
 new_list = mylist + array
+<<<<<<< HEAD
 print(new_list.my_list)
+=======
+print(new_list.my_list)
+>>>>>>> 37e92b13533a31b93b3fff00a339876955a86841

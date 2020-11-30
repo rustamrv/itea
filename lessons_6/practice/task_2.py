@@ -42,4 +42,8 @@ if __name__ == "__main__":
     print(first_dict.my_dict, 'old')
 
     print(first_dict.values())
+<<<<<<< HEAD
     print(first_dict.keys())
+=======
+    print(first_dict.keys())
+>>>>>>> 37e92b13533a31b93b3fff00a339876955a86841
