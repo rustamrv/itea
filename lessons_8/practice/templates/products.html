@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>List products</title>
+</head> 
+<style>
+    .cat{
+    padding-left: 2%;
+}
+</style>
+<body>
+    <h1>List products</h1>
+    {% for category in products %}  
+        <p class="cat"><a href="#">{{category.id}} {{category.name}} {{category.parent}} </a></p>   
+      
+    {% endfor %}
+</body>
+
+</html>
