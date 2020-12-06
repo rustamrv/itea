@@ -10,10 +10,13 @@
 }
 </style>
 <body>
-    <h1>List products</h1>
-    {% for category in products %}  
-        <p class="cat"><a href="#">{{category.id}} {{category.name}} {{category.parent}} </a></p>   
-      
+
+    <div class="menu">
+        <a href="/detail_admin">Admin</a>
+    </div>
+    <h1>{{name_category}} - list products </h1>
+    {% for product in products %}
+        <p class="cat"><a href="/detail_product/{{product.id}}">{{product.name}}</a></p>
     {% endfor %}
 </body>
 

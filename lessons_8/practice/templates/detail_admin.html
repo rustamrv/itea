@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+</head>
+<body>
+    <div class="menu">
+        <a href="/index"><- Category</a>
+    </div>
+    <form name="add_category" action="/add_category" method="post">
+        <p><b>Add category</b></p>
+        <p>Name <input type="name" name="name"></p>
+        <p>Parent
+        <select name="category">
+            {% for i in category %}
+                <option name="{{i.name}}" value="{{i.id}}">{{i.name}}</option>
+            {% endfor %}
+         </select></p>
+        <p><input type="submit"></p>
+    </form>
+    <form name="add_product" action="/add_product" method="post">
+        <p><b>Add product</b></p>
+        <p>Name <input type="text" name="name"></p>
+        <p>Price <input type="number" name="price"></p>
+        <p>Count <input type="number" name="count"></p>
+        <p>Discription <textarea name="discription"></textarea></p>
+        <p>Parent
+            <select name="category">
+            {% for i in category %}
+                <option name="{{i.name}}" value="{{i.id}}">{{i.name}}</option>
+            {% endfor %}
+            </select></p>
+        <p><input type="submit"></p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{product.name}}</title>
+</head>
+<style>
+    .cat{
+    padding-left: 2%;
+}
+</style>
+<body>
+    <div class="menu">
+        <a href="/detail_admin">Admin</a>
+    </div>
+    <p class="cat">Название {{product.name}}</p>
+    <p class="cat">Цена {{product.price}}</p>
+    {% if product.discription == None %}
+        <p class="cat">Описание </p>
+    {% else %}
+        <p class="cat">Описание {{product.discription}}</p>
+    {% endif %}
+    <p class="cat">Наличие {{product.count}}</p>
+</body>
+</html>
