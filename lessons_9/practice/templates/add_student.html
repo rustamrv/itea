@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add student</title>
+</head>
+<body>
+      <form name="add_student" action="/add_student" method="post">
+            <p><b>Add student</b></p>
+            <p>First_name <input type="text" name="first_name"></p>
+            <p>Last_name <input type="text" name="last_name"></p>
+            <p>Group
+                <select name="groups">
+                {% for i in groups %}
+                        <option name="{{i.name}}" value="{{i.id}}">{{i.name}}</option>
+                {% endfor %}
+                </select></p>
+               <p>Curator
+                <select name="curators">
+                {% for i in curators %}
+                    <option name="{{i.name}}" value="{{i.id}}">{{i.name}}</option>
+
+                {% endfor %}
+                </select></p>
+            <p>Faculty
+                <select name="faculty">
+                {% for i in faculties %}
+                    <option name="{{i.name}}" value="{{i.id}}">{{i.name}}</option>
+
+                {% endfor %}
+                </select></p>
+            <p><input type="submit"></p>
+        </form>
+</body>
+</html>

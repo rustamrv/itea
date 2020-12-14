@@ -3,6 +3,7 @@ import datetime
 
 me.connect('test_lessons_9')
 
+
 class UserProfile(me.Document):
     login = me.StringField(required=True, unique=True, min_length=4, max_length=128)
     password = me.StringField(required=True, min_length=8)
@@ -27,6 +28,7 @@ class User(me.Document):
     def save(self, *args, **kwargs):
         self.created_at = datetime.datetime.now()
         super().save(*args, **kwargs)
+
 
 if __name__ == "__main__":
     user_profile = UserProfile(login='Nikolay', password='12345678')

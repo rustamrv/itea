@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>List student</title>
+</head>
+<body>
+    <div class="menu">
+        <a href="/add_student">Add student</a>
+         <a href="/list_faculties">List faculties</a>
+         <a href="/list_curators">List curators</a>
+    </div>
+    <h1>List students</h1>
+    {% for student in students %}
+        <p><a href="/detail_student/{{student.id}}">{{student.first_name}} {{student.last_name}}</a></p>
+    {% endfor %}
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List curators</title>
+</head>
+<body>
+    <h1>List curators</h1>
+    <form name="curators" action="/list_curators" method="post">
+        <select name="curators">
+        {% for curator in curators %}
+             <option name="{{curator.name}}" value="{{curator.id}}">{{curator.name}}</option>
+        {% endfor %}
+        </select>
+        <p><input type="submit"></p>
+    </form>
+     {% if show %}
+    <p>List students of curator {{curator.name}}</p>
+       {% for i in students %}
+           <p>{{i.first_name}} {{i.last_name}}</p>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

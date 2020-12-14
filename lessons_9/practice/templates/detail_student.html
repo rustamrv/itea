@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+    <div class="menu">
+        <a href="/index"><- Back</a>
+    </div>
+    <h1>{{student.first_name}} {{student.last_name}}</h1>
+    {% if show %}
+        <p>Curator {{student.curator.name}}</p>
+        <p>Faculty {{student.faculty.name}}</p>
+        <p>Group {{student.group.name}}</p>
+        <p>Created {{student.created_at}}</p>
+        <a href="/update/{{student.id}}">Update</a>
+        <a href="/delete_student/{{student.id}}">Delete</a>
+        <p>List rate</p>
+        {% for i in rates %}
+            <p>{{i.subject.name}} rate: {{i.rate}}</p>
+        {% endfor %}
+    {% else %}
+        <form name="update" action="/update_student/{{student.id}}" method="post">
+            <p><b>Update</b></p>
+            <p>First_name <input type="text" name="first_name" value="{{student.first_name}}"></p>
+            <p>Last_name <input type="text" name="last_name" value="{{student.last_name}}"></p>
+            <p>Group
+                <select name="groups">
+                {% for i in groups %}
+                    {% if i.name == student.group.name %}
+                        <option name="{{i.name}}" value="{{i.id}}" selected>{{i.name}}</option>
+                    {% else %}
+                        <option name="{{i.name}}" value="{{i.id}}">{{i.name}}</option>
+                    {% endif %}
+                {% endfor %}
+                </select></p>
+               <p>Curator
+                <select name="curators">
+                {% for i in curators %}
+                   {% if i.name == student.curator.name %}
+                        <option name="{{i.name}}" value="{{i.id}}" selected>{{i.name}}</option>
+                    {% else %}
+                        <option name="{{i.name}}" value="{{i.id}}">{{i.name}}</option>
+                    {% endif %}
+                {% endfor %}
+                </select></p>
+            <p>Faculty
+                <select name="faculty">
+                {% for i in faculties %}
+                    {% if i.name == student.faculty.name %}
+                        <option name="{{i.name}}" value="{{i.id}}" selected>{{i.name}}</option>
+                    {% else %}
+                        <option name="{{i.name}}" value="{{i.id}}">{{i.name}}</option>
+                    {% endif %}
+                {% endfor %}
+                </select></p>
+            <p><input type="submit"></p>
+        </form>
+    {% endif %}
+
+</body>
+</html>
